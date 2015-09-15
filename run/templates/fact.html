@@ -1,0 +1,64 @@
+{{define "factPage"}}
+<!DOCTYPE HTML>
+<html>
+{{template "htmlhead" .}}
+
+<body>
+
+	<div id='layout'>
+		
+		{{template "navbar" .}}
+
+		<div id="main">
+			
+			{{template "notifications" .}}
+			
+		    <div class="header">
+		        <h1>{{.Data.Fact.Fact}}</h1>
+		        {{if .Account}}{{if eq .Data.Fact.AccountId .Account.Id}}<span class="pure-badge-info">You submitted this!</span>{{end}}{{end}}
+		        <span id="fact-{{.Data.Fact.Id}}-moderate" class="pure-badge-warning" {{if not .Data.Fact.AwaitModeration}} style="display:none;"{{end}}>Awaiting Moderation</span>
+		    </div>
+
+		    <div class="content">
+		    	<h2 class="content-subhead">Are you sure?</h2>
+		        <p>
+		            {{.Data.Fact.Explain}}
+		    	</p>
+		        <p>
+		        	{{.Data.Fact.ExplainFurther}}
+		        </p>
+
+		        <h2 class="content-subhead">Voting</h2>
+		        {{if not .Account}}
+		        	{{$score := .Data.Fact.GetScore 0}}
+		       		Score:<span id='fact-{{.Data.Fact.Id}}-score'>{{$score.Ups}}/{{$score.Downs}}</span>
+		        {{else}}
+		        	{{$score := .Data.Fact.GetScore .Account.Id}}
+		        	Score:<span id='fact-{{.Data.Fact.Id}}-score'>{{$score.Ups}}/{{$score.Downs}}</span><br>
+		        	{{if .Account.Admin}}
+			        	{{if .Data.Fact.AwaitModeration}}
+					        <button id='fact-{{.Data.Fact.Id}}-moderatelink' class='pure-button pure-button-secondary' onclick='doModerate({{.Data.Fact.Id}},false)'>Moderator - Approve</button>
+				        {{else}}
+				        	<button id='fact-{{.Data.Fact.Id}}-moderatelink' class='pure-button pure-button-secondary' onclick='doModerate({{.Data.Fact.Id}},true)'>Moderator - Disable</button>
+				        {{end}}
+		        	{{end}}
+		      		{{if or .Account.Admin (eq .Account.Id .Data.Fact.AccountId)}}
+		      			<a class='pure-button pure-button-warning' href='{{GetDeleteFactUrl .Data.Fact.Id}}'>Delete Fact</a>
+		      		{{end}}
+		        	<button class='pure-button pure-button-success' onclick='doVote({{.Data.Fact.Id}}, true)'>Vote Up</button> 
+		        	<button class='pure-button pure-button-error' onclick='doVote({{.Data.Fact.Id}},false)'>Vote Down</button> (Your vote: <span id='fact-{{.Data.Fact.Id}}-yourscore'>{{$score.AccountVote}}</span>)
+		        {{end}}
+		        <h2 class="content-subhead">References</h2>
+		        <p><ol>
+		        {{range $index, $ref := .Data.Fact.References}}
+		            <li><a href='{{$ref.Url}}' target="_blank">{{$ref.Publisher}} - {{$ref.Title}}</a></li>
+		        {{end}}
+				</ol></p>
+		    </div>
+		</div>
+	</div>
+</body>
+
+{{template "scripts" .}}
+</html>
+{{end}}
