@@ -106,6 +106,7 @@ var passwordMustHave = []func(rune) bool{
 	unicode.IsLower,
 	unicode.IsSymbol,
 	unicode.IsDigit,
+	unicode.IsPunct,
 }
 
 func IsPasswordAcceptable(plaintextPassword string) bool {

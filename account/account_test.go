@@ -96,6 +96,7 @@ func TestIsPasswordAcceptable(t *testing.T) {
 		"m1@7&":      false,
 		"p99999999":  false,
 		"rtyrty1+":   true,
+		"hunter2!":   true,
 	}
 
 	for password, answer := range testPasswords {
