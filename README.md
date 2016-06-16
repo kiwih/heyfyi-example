@@ -1,6 +1,8 @@
 # heyfyi
 An example Golang Web Application
 
+See me live at [hey.fyi]([http://hey.fyi)!
+
 ## What is this?
 When I first started developing websites in the Go programming language, I frequently wished that there was a complete example of a simple but complete web application that I could inspect.
 
