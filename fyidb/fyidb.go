@@ -54,7 +54,7 @@ func ConnectDatabase(dbname string) {
 
 	log.Println("Database connection opened.")
 
-	dbGorm = &dbGormConnection
+	dbGorm = dbGormConnection
 	//dbGorm.LogMode(true)
 
 	if makeTables == true {
@@ -63,7 +63,7 @@ func ConnectDatabase(dbname string) {
 		MigrateDatabaseTables()
 	}
 
-	DbStorage.dbGorm = &dbGormConnection
+	DbStorage.dbGorm = dbGormConnection
 }
 
 func makeTable(tableName string, table interface{}) {

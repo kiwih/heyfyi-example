@@ -92,7 +92,7 @@ func AttemptLogin(as AccountStorer, propEmail string, propPassword string, willE
 
 func IsEmailInUse(as AccountStorer, email string) (bool, error) {
 	if _, err := as.LoadAccountFromEmail(email); err != nil {
-		if err.Error() == gorm.RecordNotFound.Error() {
+		if err.Error() == gorm.ErrRecordNotFound.Error() {
 			return false, nil
 		} else {
 			return false, err
