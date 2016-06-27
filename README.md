@@ -12,7 +12,7 @@ heyfyi aims to fill the need that I had as a developer. This project is designed
 The program was designed around the [gocraft](http://github.com/gocraft/web) mux and middleware package. 
 
 It is built to the following architecture diagram:
-![Architecture Diagram](https://github.com/kiwih/heyfyi/raw/master/run/files/HeyFyi_Architecture.png)
+![Architecture Diagram](https://github.com/kiwih/heyfyi/raw/master/media/HeyFyi_Architecture.png)
 
 ## Will it be developed further?
 Absolutely. It is possible that there are mistakes, conceptual or otherwise, in the code. If you spot any, please submit an issue or a pull request!
@@ -44,6 +44,6 @@ You can sign in to the default admin user with username/password both `test@test
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/kiwih/heyfyi/raw/master/run/files/screen1.png)
+![Screenshot 1](https://github.com/kiwih/heyfyi/raw/master/media/public/screen1.png)
 
-![Screenshot 2](https://github.com/kiwih/heyfyi/raw/master/run/files/screen2.png)
+![Screenshot 2](https://github.com/kiwih/heyfyi/raw/master/media/public/screen2.png)
