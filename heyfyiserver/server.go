@@ -1,4 +1,4 @@
-package heyfyi
+package heyfyiserver
 
 import (
 	"encoding/gob"
@@ -13,14 +13,14 @@ import (
 	"github.com/gocraft/web"
 	"github.com/gorilla/schema"
 	"github.com/gorilla/sessions"
-	"github.com/kiwih/heyfyi/fact"
-	"github.com/kiwih/heyfyi/fyidb"
+	"github.com/kiwih/heyfyi/heyfyiserver/fact"
+	"github.com/kiwih/heyfyi/heyfyiserver/fyidb"
 )
 
 var (
 	store *sessions.CookieStore
 
-	templates = template.Must(template.New("").Funcs(funcMap).ParseGlob("./templates/*")) //this initializes the template engine
+	templates = template.Must(template.New("").Funcs(funcMap).ParseGlob("./media/templates/*")) //this initializes the template engine
 	decoder   = schema.NewDecoder()                                                       //this initializes the schema (HTML form decoding) engine
 )
 

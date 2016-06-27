@@ -22,11 +22,25 @@ In addition, as I do not have much experience with UI, there are many places whe
 ## How do I build/run it?
 You can `go get github.com/kiwih/heyfyi` this project. 
 
-Once you have acquired it, navigate into the /run folder and `go build`.
-
-You must specify a $COOKIE_STORE_SALT environment variable, which is something used to encrypt the cookies run by the server. There are two more optional environment variables - $LOG_FILE_NAME, to choose the log file name (defaults to heyfyi.txt), and $HTTP_PORT (defaults to 3000). 
+Once you have acquired it, `go get -u` then `go build`.
 
 As this program uses sqlite, you will need gcc to use cgo. If you are developing on windows, I recommend [mingw-64](http://sourceforge.net/projects/mingw-w64/) and not cygwin.
+
+Finally, you can run it by running `./heyfyi`
+
+On the first run, it will create the database file and tables. 
+
+This will contain a default fact and a default admin user.
+
+You can sign in to the default admin user with username/password both `test@test`.
+
+## Setting environment variables
+
+`$COOKIE_STORE_SALT` - used in cookie encryption. It defaults to `SUPER_SECRET_SALT` for testing purposes only.
+
+`$HTTP_PORT` - set the HTTP port to listen on. Defaults to `3000`.
+
+`$LOG_FILE_NAME` - set the logfile name for logging. Defaults to `heyfyi.txt`.
 
 ## Screenshots
 

@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/kiwih/heyfyi"
+	"github.com/kiwih/heyfyi/heyfyiserver"
 )
 
 func main() {
@@ -30,8 +30,9 @@ func main() {
 
 	cookieStoreSalt := os.Getenv("COOKIE_STORE_SALT")
 	if len(cookieStoreSalt) == 0 {
-		log.Fatal("$COOKIE_STORE_SALT was not set, cannot go on. Exiting.")
+		log.Println("$COOKIE_STORE_SALT was not set, defaulting to 'SUPER_SECRET_SALT'.")
+		cookieStoreSalt = "SUPER_SECRET_SALT"
 	}
 
-	heyfyi.StartServer(serverAddress, cookieStoreSalt)
+	heyfyiserver.StartServer(serverAddress, cookieStoreSalt)
 }

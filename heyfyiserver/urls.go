@@ -1,4 +1,4 @@
-package heyfyi
+package heyfyiserver
 
 import (
 	"strings"
@@ -46,7 +46,7 @@ func initRouter() *web.Router {
 	rootRouter := web.New(Context{})
 	rootRouter.Middleware(web.LoggerMiddleware)
 	rootRouter.Middleware(web.ShowErrorsMiddleware)
-	rootRouter.Middleware(web.StaticMiddleware("./files", web.StaticOption{Prefix: "/public"})) // "public" is a directory to serve files from.)
+	rootRouter.Middleware(web.StaticMiddleware("./media/public", web.StaticOption{Prefix: "/public"})) // "public" is a directory to serve files from.)
 	rootRouter.Middleware((*Context).AssignStorageMiddleware)
 	rootRouter.Middleware((*Context).AssignTemplatesAndSessionsMiddleware)
 	rootRouter.Middleware((*Context).LoadUserMiddleware)

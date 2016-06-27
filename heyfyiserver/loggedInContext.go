@@ -1,4 +1,4 @@
-package heyfyi
+package heyfyiserver
 
 import (
 	"encoding/json"
@@ -6,8 +6,8 @@ import (
 	"strconv"
 
 	"github.com/gocraft/web"
-	"github.com/kiwih/heyfyi/account"
-	"github.com/kiwih/heyfyi/fact"
+	"github.com/kiwih/heyfyi/heyfyiserver/account"
+	"github.com/kiwih/heyfyi/heyfyiserver/fact"
 )
 
 type LoggedInContext struct {

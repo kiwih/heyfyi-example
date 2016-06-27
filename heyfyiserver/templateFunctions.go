@@ -1,4 +1,4 @@
-package heyfyi
+package heyfyiserver
 
 import (
 	"html/template"

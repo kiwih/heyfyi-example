@@ -1,4 +1,4 @@
-package heyfyi
+package heyfyiserver
 
 import (
 	"log"
@@ -7,9 +7,9 @@ import (
 
 	"github.com/gocraft/web"
 	"github.com/gorilla/sessions"
-	"github.com/kiwih/heyfyi/account"
-	"github.com/kiwih/heyfyi/fact"
-	"github.com/kiwih/heyfyi/fyidb"
+	"github.com/kiwih/heyfyi/heyfyiserver/account"
+	"github.com/kiwih/heyfyi/heyfyiserver/fact"
+	"github.com/kiwih/heyfyi/heyfyiserver/fyidb"
 )
 
 type AnyStorer interface {

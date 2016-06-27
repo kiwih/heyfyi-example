@@ -12,8 +12,8 @@ import (
 	//	_ "github.com/denisenkom/go-mssqldb"
 
 	"github.com/jinzhu/gorm"
-	"github.com/kiwih/heyfyi/account"
-	"github.com/kiwih/heyfyi/fact"
+	"github.com/kiwih/heyfyi/heyfyiserver/account"
+	"github.com/kiwih/heyfyi/heyfyiserver/fact"
 	"github.com/kiwih/nullables"
 	"golang.org/x/crypto/bcrypt"
 )
@@ -103,8 +103,8 @@ func CreateDatabaseTables() {
 
 func AddTestUser() {
 	//add the test user to the database
-	log.Printf("Inserting \"test@test\" as an Account...\n")
-	hashedPass, err := bcrypt.GenerateFromPassword([]byte("testing1+"), 10)
+	log.Printf("Inserting \"test@test / test@test\" as an admin Account...\n")
+	hashedPass, err := bcrypt.GenerateFromPassword([]byte("test@test"), 10)
 	if err != nil {
 		panic(err)
 	}
