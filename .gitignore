@@ -1,1 +1,4 @@
 *_ENV.sh
+*.exe
+*.txt
+*.sh
