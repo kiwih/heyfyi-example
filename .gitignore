@@ -1,4 +1,6 @@
 *_ENV.sh
-*.exe
-*.txt
-*.sh
+heyfyi
+heyfyi.exe
+heyfyi.sqlite3
+heyfyi.txt
+.DS_Store
