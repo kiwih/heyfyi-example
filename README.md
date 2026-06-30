@@ -1,3 +1,9 @@
+# IMPORTANT
+
+At time of writing this repository is a decade old and has not been updated to more modern ways of writing Go.
+
+I am archiving it for posterity but do not recommend using it in its current form.
+
 # heyfyi
 An example Golang Web Application
 
